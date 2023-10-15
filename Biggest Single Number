@@ -1,0 +1,5 @@
+SELECT MAX(num) as num 
+FROM (
+SELECT num from MyNumbers
+GROUP BY num having count(num)=1
+  ) NEW;
