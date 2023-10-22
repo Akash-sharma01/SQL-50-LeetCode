@@ -3,6 +3,3 @@ FROM employees as e
 left join 
 employeeuni as eu 
 ON e.id = eu.id
- 
-  
-   
