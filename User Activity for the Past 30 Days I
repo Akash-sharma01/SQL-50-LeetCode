@@ -1,0 +1,13 @@
+--APPROACH 1: 
+SELECT activity_date as day, COUNT(Distinct user_id) as active_users
+FROM activity
+WHERE activity_date BETWEEN DATE_ADD('2019-07-27', INTERVAL -29 DAY) and 
+'2019-07-27'
+GROUP BY day;
+
+
+--APPROACH 2: 
+SELECT activity_date as day, COUNT(DISTINCT user_id) as active_users
+FROM Activity
+WHERE '2019-06-28' <= activity_date and activity_date <= '2019-07-27'
+GROUP BY day;
