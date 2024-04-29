@@ -1,5 +1,17 @@
+--APPROACH 1 : 
 SELECT Max(num) as num FROM MyNumbers WHERE num IN (SELECT num
 FROM MyNumbers
 GROUP BY num
 HAVING count(num) = 1
 ORDER BY num);
+
+-APPROACH 2 : 
+WITH CTE AS
+(SELECT num
+FROM MyNumbers
+GROUP BY num
+HAVING count(num) = 1
+ORDER BY num)
+
+SELECT CASE WHEN COUNT(*) > 0 THEN MAX(num) ELSE NULL END AS num
+FROM CTE;
