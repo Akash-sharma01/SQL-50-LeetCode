@@ -1,0 +1,7 @@
+WITH CTE AS
+(SELECT product_id, RANK() OVER(PARTITION BY product_id ORDER BY year) AS rnk, year, quantity, price
+FROM sales)
+
+SELECT product_id, year as first_year,quantity, price
+FROM CTE
+WHERE rnk = 1;
