@@ -1,2 +1,4 @@
 SELECT class
-FROM courses group by class having count(student)>=5;
+FROM Courses
+GROUP BY class HAVING COUNT(DISTINCT student) >=5;
+
