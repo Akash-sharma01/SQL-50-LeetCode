@@ -1,0 +1,12 @@
+--Approach 1 --
+SELECT customer_id
+FROM customer
+GROUP BY customer_id HAVING COUNT(DISTINCT product_key) = (SELECT COUNT(DISTINCT product_key) from Product);
+
+--Approach 2 --
+SELECT C.customer_id
+FROM Product AS P LEFT JOIN Customer AS C
+ON P.product_key = C.product_key
+GROUP BY c.customer_id 
+HAVING COUNT(DISTINCT c.product_key) = (SELECT COUNT(DISTINCT product_key) from product);
+
