@@ -1,0 +1,4 @@
+SELECT accepter_id, COUNT(accepter_id) as num
+FROM RequestAccepted
+GROUP BY accepter_id
+ORDER BY num desc LIMIT 1;
